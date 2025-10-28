@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, forwardRef } from 'react';
+import React, { ButtonHTMLAttributes, forwardRef, ReactElement } from 'react';
 import { cn } from '@/lib/utils/cn';
 import Link from 'next/link';
 
@@ -7,10 +7,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'sm' | 'md' | 'lg';
   isLoading?: boolean;
   href?: string;
+  asChild?: boolean;
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = 'primary', size = 'md', isLoading, children, disabled, href, ...props }, ref) => {
+  ({ className, variant = 'primary', size = 'md', isLoading, children, disabled, href, asChild, ...props }, ref) => {
     const baseClasses = 'inline-flex items-center justify-center rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none';
     
     const variants = {
@@ -63,6 +64,20 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {children}
       </button>
     );
+
+    if (asChild && React.isValidElement(children)) {
+      return React.cloneElement(children as ReactElement, {
+        className: cn(
+          baseClasses,
+          variants[variant],
+          sizes[size],
+          className,
+          children.props.className
+        ),
+        disabled: disabled || isLoading,
+        ...props
+      });
+    }
 
     if (href) {
       return <Link href={href}>{buttonElement}</Link>;

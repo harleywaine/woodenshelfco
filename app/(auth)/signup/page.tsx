@@ -125,10 +125,8 @@ export default function SignupPage() {
               </div>
 
               <div className="mt-6">
-                <Button variant="outline" className="w-full" asChild>
-                  <Link href="/login">
-                    Sign in instead
-                  </Link>
+                <Button variant="outline" className="w-full" href="/login">
+                  Sign in instead
                 </Button>
               </div>
             </div>
