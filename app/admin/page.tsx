@@ -7,6 +7,9 @@ import { Button } from '@/components/ui/Button';
 import { useAuth } from '@/lib/hooks/useAuth';
 import { createClient } from '@/lib/supabase/client';
 import { Package, Users, ShoppingCart, DollarSign } from 'lucide-react';
+import { Database } from '@/lib/types/database';
+
+type Order = Database['public']['Tables']['orders']['Row'];
 
 export default function AdminDashboard() {
   const { user, loading } = useAuth();
@@ -41,7 +44,7 @@ export default function AdminDashboard() {
 
       const totalProducts = productsRes.count || 0;
       const totalOrders = ordersRes.count || 0;
-      const totalRevenue = ordersRes.data?.reduce((sum, order) => sum + order.total_amount, 0) || 0;
+      const totalRevenue = (ordersRes.data as Order[] | null)?.reduce((sum, order) => sum + order.total_amount, 0) || 0;
       const totalUsers = usersRes.data?.users?.length || 0;
 
       setStats({
