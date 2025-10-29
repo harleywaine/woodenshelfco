@@ -93,10 +93,8 @@ export function WoodTypeSection() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-center mt-12"
         >
-          <Button size="lg" asChild>
-            <Link href="/shop">
-              Explore All Wood Types
-            </Link>
+          <Button size="lg" href="/shop">
+            Explore All Wood Types
           </Button>
         </motion.div>
       </div>

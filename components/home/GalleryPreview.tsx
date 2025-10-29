@@ -87,10 +87,8 @@ export function GalleryPreview() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-center mt-12"
         >
-          <Button size="lg" asChild>
-            <Link href="/gallery">
-              View Full Gallery
-            </Link>
+          <Button size="lg" href="/gallery">
+            View Full Gallery
           </Button>
         </motion.div>
       </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ShelfConfigurator } from '@/components/builder/ShelfConfigurator';
+import { Button } from '@/components/ui/Button';
 
 export default function BuilderPage() {
   const [currentPrice, setCurrentPrice] = useState(0);
@@ -21,7 +21,20 @@ export default function BuilderPage() {
           </p>
         </div>
 
-        <ShelfConfigurator onPriceUpdate={setCurrentPrice} />
+        {/* Coming Soon Message */}
+        <div className="text-center py-16">
+          <div className="max-w-md mx-auto">
+            <h2 className="text-2xl font-playfair font-semibold text-gray-900 mb-4">
+              Builder Coming Soon
+            </h2>
+            <p className="text-gray-600 mb-8">
+              Our interactive shelf builder is being developed. Contact us to discuss your custom shelf requirements.
+            </p>
+            <Button href="/faq#contact" variant="primary" size="lg">
+              Contact Us
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -73,14 +73,6 @@ export default function Navbar() {
             <Search className="h-5 w-5" />
           </button>
 
-          <Link href="/login">
-            <button className={`p-2 rounded-lg transition-colors ${
-              shouldShowDarkText ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/10'
-            }`}>
-              <User className="h-5 w-5" />
-            </button>
-          </Link>
-
           <button className={`relative p-2 rounded-lg transition-colors ${
             shouldShowDarkText ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/10'
           }`}>
@@ -122,13 +114,6 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <Link
-              href="/login"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-amber-800 hover:bg-gray-50 transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Login
-            </Link>
           </div>
         </div>
       )}

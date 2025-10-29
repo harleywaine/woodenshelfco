@@ -30,15 +30,11 @@ export function CTASection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button size="lg" variant="secondary" asChild>
-              <Link href="/builder">
-                Start Building
-              </Link>
+            <Button size="lg" variant="secondary" href="/builder">
+              Start Building
             </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link href="/shop">
-                Browse Collection
-              </Link>
+            <Button size="lg" variant="outline" href="/shop">
+              Browse Collection
             </Button>
           </div>
 
