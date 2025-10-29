@@ -1,10 +1,6 @@
-import Navbar from '@/components/layout/Navbar';
-import { Footer } from '@/components/layout/Footer';
-
 export default function HomePage() {
   return (
     <div className="min-h-screen">
-      <Navbar />
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden -mt-16 pt-16">
         {/* Background Image */}
@@ -209,8 +205,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      
-      <Footer />
     </div>
   );
 }
