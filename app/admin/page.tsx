@@ -44,7 +44,7 @@ export default function AdminDashboard() {
 
       const totalProducts = productsRes.count || 0;
       const totalOrders = ordersRes.count || 0;
-      const totalRevenue = (ordersRes.data as Order[] | null)?.reduce((sum, order) => sum + order.total_amount, 0) || 0;
+      const totalRevenue = (ordersRes.data as Order[] | null)?.reduce((sum: number, order: Order) => sum + order.total_amount, 0) || 0;
       const totalUsers = usersRes.data?.users?.length || 0;
 
       setStats({
