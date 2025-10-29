@@ -11,7 +11,7 @@ import { formatPrice } from '@/lib/utils/formatters';
 import { Plus, Edit, Trash2, Eye } from 'lucide-react';
 import { Database } from '@/lib/types/database';
 
-type ProductUpdate = Database['public']['Tables']['products']['Update'];
+type ProductUpdate = Pick<Database['public']['Tables']['products']['Update'], 'is_active'>;
 
 export default function AdminProductsPage() {
   const { user, loading } = useAuth();
