@@ -9,6 +9,9 @@ import { createClient } from '@/lib/supabase/client';
 import { Product } from '@/lib/types/product';
 import { formatPrice } from '@/lib/utils/formatters';
 import { Plus, Edit, Trash2, Eye } from 'lucide-react';
+import { Database } from '@/lib/types/database';
+
+type ProductUpdate = Database['public']['Tables']['products']['Update'];
 
 export default function AdminProductsPage() {
   const { user, loading } = useAuth();
@@ -62,9 +65,10 @@ export default function AdminProductsPage() {
 
   const toggleProductStatus = async (id: string, currentStatus: boolean) => {
     try {
+      const updateData: ProductUpdate = { is_active: !currentStatus };
       const { error } = await supabase
         .from('products')
-        .update({ is_active: !currentStatus })
+        .update(updateData)
         .eq('id', id);
 
       if (error) throw error;
